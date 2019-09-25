@@ -12,7 +12,7 @@ var initialState = [
     },
     {
         id: 3,
-        name: 'Trainning ReactJS',
+        name: 'Trainning ReactJSa',
         status: true
     }
 ];
@@ -22,11 +22,6 @@ const todos = (state = initialState, action) => {
         case 'ADD_TODO':
             var todo = action.todo;
             state = [...state, todo];
-            return [ ...state ];
-
-        case 'DELETE_TODO':
-            var id = action.id;
-            state = state.filter(n=>n.id !== id);
             return [ ...state ];
 
         default:

@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as Types from './../contains/ActionTypes'
 
 class ListTodo extends Component {
 
     componentDidMount() {
-        // var todo = {
-        //     id: 3,
-        //     name: 'dingu',
-        //     status: true
-        // }
-        // this.props.addTodo();
-        // this.props.deleteTodo(1);
+        this.props.actGetTodo();
     }
-
+    
     showTodos = (todos) => {
         var result = [];
         if (todos.length) {
@@ -48,8 +43,6 @@ class ListTodo extends Component {
     }
 
     render() {
-
-        console.log(this.props.todos);
 
         return (
             <table className="table table-bordered table-hover">
@@ -91,16 +84,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTodo: (todo) => {
+        actGetTodo: () => {
             dispatch({
-                type: 'ADD_TODO',
-                todo: todo
-            })
-        },
-        deleteTodo: (id) => {
-            dispatch({
-                type: 'DELETE_TODO',
-                id
+                type: Types.GET_TODO
             })
         }
     }
